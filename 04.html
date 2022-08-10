@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- นายพีรพัฒน์ สุริยะพรม -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Press+Start+2P&family=Righteous&display=swap"
+    rel="stylesheet">
+
+  <style>
+    .jumbotron {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-group {
+      font-family: 'Righteous'
+    }
+
+    img {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      z-index: 2;
+      position: relative;
+    }
+  </style>
+  <script>
+    let l_name = []
+    let l_num = []
+    let l_up = []
+    let l_down = []
+    let l_hit = []
+  </script>
+
+  <title>สั่งซื้อสำเร็จ  </title>
+</head>
+
+<body
+  style="background-image: url(https://ภาพพื้นหลัง.com/wp-content/uploads/2019/04/%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%9E%E0%B8%B7%E0%B9%89%E0%B8%99%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%B5%E0%B8%AD%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%86-1.jpg)"
+  onload="get_array()">
+  <div class="jumbotron jumbotron-fluid mb-0">
+    <img src="https://gumlet.assettype.com/ejan%2Fimport%2Farticle%2Fcontent%2F5f7ee192af637.jpeg?auto=format%2Ccompress&w=768&dpr=1.0"
+   ></img>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary" style="font-family:'Righteous'" ;>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <!-- <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li> -->
+        <li class="nav-item active">
+          <a class="nav-link" href="01.html">หน้าหลัก</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="02.html">ตรวจสอบการสั่งซื้อ</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="05.html">ยอดขาย</a>
+        </li>
+        <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li> -->
+        <!-- <li class="nav-item">
+              <a class="nav-link disabled">Disabled</a>
+            </li> -->
+      </ul>
+      <!-- <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form> -->
+    </div>
+  </nav>
+
+  <div class="container p-3">
+    <div class="d-flex justify-content-center">
+      <div class="card" style="width: 30rem; height: 35rem">
+        <!-- <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4Mq7Smyhc_yTkRtxUHAzwuN-mTw1Tnm7dC8gwANArZQQc6n_oX-JCcedGt1xgPl24uA&usqp=CAU"
+          class="card-img-top" alt="..."> -->
+        <div class="card-body">
+          <h5 class="card-title" align="center" style="font-family:'Righteous'">สั่งซื้อสำเร็จ</h5>
+          <p class="card-text">
+          <table class="table table-bordered table-striped table-hover">
+            <thead class="table-success">
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">ชื่อ</th>
+                <th scope="col">ตัวเลข</th>
+                <th scope="col">บน</th>
+                <th scope="col">ล่าง</th>
+                <th scope="col">โต๊ด</th>
+              </tr>
+            </thead>
+            <tbody id="output">
+              <script>
+                let show_data = ''
+                function get_array() {
+                  l_name = JSON.parse(localStorage.getItem('name'))
+                  l_num = JSON.parse(localStorage.getItem('num'))
+                  l_up = JSON.parse(localStorage.getItem('up'))
+                  l_down = JSON.parse(localStorage.getItem('down'))
+                  l_hit = JSON.parse(localStorage.getItem('hit'))
+                  //console.log(l_sid)
+                  
+                  for (let i = 0; i < l_name.length; i++) {
+                    sum = i+1
+                    show_data += '<tr><th scope="row">' + sum + '</th><td>' + 
+                      l_name[i] + '</td><td>' +
+                      l_num[i] + '</td><td>' +
+                      l_up[i] +'</td><td>' +
+                      l_down[i] +'</td><td>' +
+                      l_hit[i] +'</td></tr>'
+                    // show_data += l_sid[i] + ' ' + l_name[i] + ' ' + l_phon[i] + '<br>'
+                    document.getElementById('output').innerHTML = show_data
+                    // document.getElementById('output').innerHTML ='<tr><th scope="row">1</th><td>j</td><td>i</td><td>h</td></tr>'
+                  }
+                  show_data = ''
+                }
+              </script>
+            </tbody>
+          </table>
+          <p align="center" style="color:green;">สั่งซื้อสำเร็จ</p>
+          <a href="#" class="btn btn-success btn-lg btn-block">แชร์</a>
+          </p>
+          <!-- <button type="button" class="btn btn-success w-25">Success</button>
+                <button type="button" class="btn btn-outline-success w-25">reset</button> -->
+               
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+    crossorigin="anonymous"></script>
+     <!-- Include Dexie
+  <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+
+   Custom main file
+  <script src="../main.js" type="module"></script> -->
+</body>
+
+</html>

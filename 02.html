@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- นายพีรพัฒน์ สุริยะพรม -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Press+Start+2P&family=Righteous&display=swap"
+    rel="stylesheet">
+
+  <style>
+    .jumbotron {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-group {
+      font-family: 'Righteous'
+    }
+
+    img {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      z-index: 2;
+      position: relative;
+    }
+  </style>
+  <script>
+    let name = []
+    let num = []
+    let up = []
+    let down = []
+    let hit = []
+  </script>
+
+  <title>02.html</title>
+</head>
+
+<body
+  style="background-image: url(https://ภาพพื้นหลัง.com/wp-content/uploads/2019/04/%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%9E%E0%B8%B7%E0%B9%89%E0%B8%99%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%B5%E0%B8%AD%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%86-1.jpg)">
+  <div class="jumbotron jumbotron-fluid mb-0">
+    <img src="https://gumlet.assettype.com/ejan%2Fimport%2Farticle%2Fcontent%2F5f7ee192af637.jpeg?auto=format%2Ccompress&w=768&dpr=1.0"
+   ></img>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary" style="font-family:'Righteous'" ;>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="01.html">หน้าหลัก</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="02.html">ตรวจสอบการสั่งซื้อ</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="05.html">ยอดขาย</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container p-3">
+    <div class="d-flex justify-content-center">
+      <div class="card" style="width: 30rem; height: 35rem">
+        <div class="card-body">
+          <h5 class="card-title" align="center" style="font-family:'Righteous'">สั่งซื้อ </h5>
+          <p class="card-text">
+            <form >
+          <div class="form-group" >
+            <label for="formGroupExampleInput" >ชื่อลูกค้า</label>
+            <input type="text" class="form-control" id="name" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">ตัวเลข</label>
+            <input type="text" class="form-control" id="num" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput3">บน</label>
+            <input type="text" class="form-control" id="up" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput4">ล่าง</label>
+            <input type="text" class="form-control" id="down" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput5">โต๊ด</label>
+            <input type="text" class="form-control" id="hit" placeholder="">
+          </div>
+          </form>
+          </p>
+          <button type="button" class="btn btn-success w-25" onclick="set_array()">บันทึก</button>
+          <a href="03.html" class="btn btn-success" >สั่งซื้อ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script >
+
+    function set_array() {
+        name.push(document.getElementById('name').value)
+        num.push(document.getElementById('num').value)
+        up.push(document.getElementById('up').value)
+        down.push(document.getElementById('down').value)
+        hit.push(document.getElementById('hit').value)
+
+
+        localStorage.setItem('name', JSON.stringify(name))
+        localStorage.setItem('num', JSON.stringify(num))
+        localStorage.setItem('up', JSON.stringify(up))
+        localStorage.setItem('down', JSON.stringify(down))
+        localStorage.setItem('hit', JSON.stringify(hit))
+      clear_input()
+    }
+
+    function clear_input() {
+        document.getElementById('name').value = ''
+        document.getElementById('num').value = ''
+        document.getElementById('up').value = ''
+        document.getElementById('down').value = ''
+        document.getElementById('hit').value = ''
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+    crossorigin="anonymous"></script>
+  <!-- <script type="text/javascript" src="./login.js"></script> -->
+  <!-- <script type="text/javascript" src="./script.js"></script> -->
+
+   <!-- Include Dexie -->
+   <!-- <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script> -->
+
+   <!-- Custom main file-->
+   <!-- <script src="../main.js" type="module"></script> -->
+  </body>
+
+</html>
